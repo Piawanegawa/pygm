@@ -9,7 +9,6 @@ class AIResponseBuilder:
     def __init__(self, prompt_id: str, content: str = None) -> None:
         """
         Initialize the AIResponseBuilder.
-
         :param prompt_id: The prompt ID.
         :param content: The response content.
         """
@@ -21,7 +20,6 @@ class AIResponseBuilder:
     def set_content(self, content: str) -> "AIResponseBuilder":
         """
         Set the content of the response.
-        
         :param content: the content
         :return: The builder instance.
         """
@@ -31,7 +29,6 @@ class AIResponseBuilder:
     def set_finish_reason(self, finish_reason: str) -> "AIResponseBuilder":
         """
         Set the finish reason.
-
         :param finish_reason: The finish reason.
         :return: The builder instance.
         """
@@ -41,7 +38,6 @@ class AIResponseBuilder:
     def set_error(self, error: str) -> "AIResponseBuilder":
         """
         Set the error message.
-
         :param error: The error message.
         :return: The builder instance.
         """
@@ -51,7 +47,6 @@ class AIResponseBuilder:
     def build(self) -> AIResponse:
         """
         Build the AIResponse.
-
         :return: The constructed AIResponse.
         """
         return AIResponse(

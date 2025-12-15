@@ -11,7 +11,6 @@ class AIClientConfigBuilder:
     def __init__(self, provider_type: AIProviderType) -> None:
         """
         Initialize the AIClientConfigBuilder.
-
         :param provider_type: The AI provider type.
         """
         self._provider_type: AIProviderType = provider_type
@@ -21,7 +20,6 @@ class AIClientConfigBuilder:
     def set_api_key(self, api_key: str) -> "AIClientConfigBuilder":
         """
         Set the API key.
-
         :param api_key: The API key.
         :return: The builder instance.
         """
@@ -31,7 +29,6 @@ class AIClientConfigBuilder:
     def build(self) -> AIClientConfig:
         """
         Build the AIClientConfig.
-
         :return: The constructed AIClientConfig.
         :raises ValueError: If required fields are missing.
         """

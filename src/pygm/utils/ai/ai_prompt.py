@@ -16,7 +16,6 @@ class AIPrompt(BaseModel):
     def get_prompt_id(self) -> str:
         """
         Get the prompt ID.
-
         :return: The prompt ID.
         """
         return self.prompt_id
@@ -24,7 +23,6 @@ class AIPrompt(BaseModel):
     def get_messages(self) -> list[AIMessage]:
         """
         Get the messages.
-
         :return: The list of messages.
         """
         return self.messages
@@ -32,7 +30,6 @@ class AIPrompt(BaseModel):
     def get_max_output_tokens(self) -> int | None:
         """
         Get the max output tokens.
-
         :return: The max output tokens or None.
         """
         return self.max_output_tokens
@@ -40,7 +37,6 @@ class AIPrompt(BaseModel):
     def get_temperature(self) -> float | None:
         """
         Get the temperature.
-
         :return: The temperature or None.
         """
         return self.temperature

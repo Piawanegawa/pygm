@@ -11,7 +11,6 @@ class AIPromptBuilder:
     def __init__(self, prompt_id: str) -> None:
         """
         Initialize the AIPromptBuilder.
-
         :param prompt_id: The prompt ID.
         """
         self._prompt_id: str = prompt_id
@@ -22,7 +21,6 @@ class AIPromptBuilder:
     def add_message(self, role: AIMessageRole, content: str) -> "AIPromptBuilder":
         """
         Add a message to the prompt.
-
         :param role: The role of the message sender.
         :param content: The content of the message.
         :return: The builder instance.
@@ -33,7 +31,6 @@ class AIPromptBuilder:
     def set_max_output_tokens(self, max_output_tokens: int) -> "AIPromptBuilder":
         """
         Set the max output tokens.
-
         :param max_output_tokens: The max output tokens.
         :return: The builder instance.
         """
@@ -43,7 +40,6 @@ class AIPromptBuilder:
     def set_temperature(self, temperature: float) -> "AIPromptBuilder":
         """
         Set the temperature.
-
         :param temperature: The temperature.
         :return: The builder instance.
         """
@@ -53,7 +49,6 @@ class AIPromptBuilder:
     def build(self) -> AIPrompt:
         """
         Build the AIPrompt.
-
         :return: The constructed AIPrompt.
         """
         return AIPrompt(

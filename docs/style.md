@@ -6,7 +6,8 @@ CamelCase für Klassen
 * maximale Zeilenlänge 100.
 * Jede Funktion/Klasse bekommt einen knappen Docstring  
 (1–3 Zeilen, was sie tut). Funktionen bekommen im Docstring  
-zusätzlich noch params und return.
+zusätzlich noch params und return. Es steht keine Leerzeile  
+zwischen der Beschreibung und den params/return.
 * Docstrings immer auf Englisch.
 * Docstrings immer mit dreifachen Anführungszeichen in extra  
 Zeilen am Anfang und am Ende.

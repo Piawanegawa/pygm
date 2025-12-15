@@ -22,7 +22,6 @@ class ApiKeyManager:
     def set_api_key(self, provider_type: AIProviderType, api_key: ApiKey) -> None:
         """
         Set an API key for a provider and persist it.
-
         :param provider_type: The type of AI provider.
         :param api_key: The ApiKey object to store.
         """
@@ -33,7 +32,6 @@ class ApiKeyManager:
     def get_api_key(self, provider_type: AIProviderType) -> ApiKey:
         """
         Get the API key for a provider.
-
         :param provider_type: The type of AI provider.
         :return: The ApiKey object.
         :raises KeyError: If no API key is set for the provider.
@@ -58,7 +56,6 @@ class ApiKeyManager:
     def _get_env_key_name(provider_type: AIProviderType) -> str:
         """
         Get the environment variable name for a provider type.
-
         :param provider_type: The AI provider type.
         :return: The environment variable name.
         """

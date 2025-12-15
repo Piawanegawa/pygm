@@ -10,19 +10,3 @@ class AIMessage(BaseModel):
 
     role: AIMessageRole
     content: str
-
-    def get_role(self) -> AIMessageRole:
-        """
-        Get the role of the message.
-
-        :return: The message role.
-        """
-        return self.role
-
-    def get_content(self) -> str:
-        """
-        Get the content of the message.
-
-        :return: The message content.
-        """
-        return self.content

@@ -13,7 +13,6 @@ class AIClient(ABC):
     def send_prompt(self, prompt: AIPrompt) -> AIResponse:
         """
         Send a prompt to the AI provider and receive a response.
-
         :param prompt: The AIPrompt to send.
         :return: The AIResponse from the provider.
         """

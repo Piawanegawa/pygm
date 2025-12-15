@@ -9,7 +9,6 @@ class ApiKey:
     def __init__(self, provider_type: AIProviderType, api_key: str) -> None:
         """
         Initialize the ApiKey.
-
         :param provider_type: The type of AI provider.
         :param api_key: The API key string.
         """
@@ -19,7 +18,6 @@ class ApiKey:
     def get_provider_type(self) -> AIProviderType:
         """
         Get the provider type.
-
         :return: The AI provider type.
         """
         return self._provider_type
@@ -27,7 +25,6 @@ class ApiKey:
     def get_api_key(self) -> str:
         """
         Get the API key.
-
         :return: The API key string.
         """
         return self._api_key
