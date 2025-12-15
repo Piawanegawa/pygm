@@ -4,6 +4,10 @@
 * Halte dich grob an PEP8, snake_case für Funktionen/Variablen,  
 CamelCase für Klassen
 * maximale Zeilenlänge 100.
+* Jedes Python‑File beginnt mit der Zeile "#!/usr/bin/env python3",  
+gefolgt von einer Leerzeile, gefolgt von einem Modul‑Docstring,  
+der kurz den Zweck der Datei beschreibt.
+* Jedes Python‑File endet mit einer Leerzeile.
 * Jede Funktion/Klasse bekommt einen knappen Docstring  
 (1–3 Zeilen, was sie tut). Funktionen bekommen im Docstring  
 zusätzlich noch params und return. Es steht keine Leerzeile  
@@ -12,7 +16,7 @@ zwischen der Beschreibung und den params/return.
 * Docstrings immer mit dreifachen Anführungszeichen in extra  
 Zeilen am Anfang und am Ende.
 * Alle Funktionen mit Typannotationen für Parameter und Rückgabe.
-* Falls eine Methode keinen Rückgabewert hat, benutze "-> None".
+* Falls eine Methode keinen Rückgabewert hat, benutze None.
 * Auch Membervariablen, Klassenvariablen und globale Variablen haben Typannotationen.
 * Lieber mehrere kleine, gut benannte Funktionen als eine große  
 mit tiefer Verschachtelung (max. ca. 3 Ebenen).

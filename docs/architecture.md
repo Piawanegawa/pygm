@@ -170,12 +170,12 @@ package "pygm" {
             +send_prompt(prompt: AIPrompt) -> AIResponse
         }
         class AIProviderFactory {
-            +create_ai_provider(provider_type: AIProviderType) -> AIProvider
+            +create_ai_provider(config: AIClientConfig) -> AIProvider
         }        
         package impl {
             package openrouter {
                 class OpenRouterProvider {
-                    +init()
+                    +__init__(config: AIClientConfig)
                     +get_api_endpoint(): str
                     +get_available_models(): list[str]
                     +create_ai_client(config: AIClientConfig) -> AIClient
@@ -196,6 +196,7 @@ package "pygm" {
         AIProvider ..> ApiKey : <<uses>>
         AIProvider ..> AIClient : <<creates>>
         AIProviderFactory ..> AIProvider : <<creates>>
+        AIProviderFactory ..> AIClientConfig : <<uses>>
         AIClientConfigBuilder ..> AIClientConfig : <<creates>>
     }
   }

@@ -1,3 +1,10 @@
+"""
+AI prompt model.
+
+This module defines the AIPrompt class representing a complete prompt
+to send to an AI provider, including messages and generation parameters.
+"""
+
 from pydantic import BaseModel
 
 from pygm.utils.ai.ai_message import AIMessage

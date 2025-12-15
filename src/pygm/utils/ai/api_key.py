@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+
+"""
+API key model.
+
+This module defines the ApiKey class representing an API key
+for a specific AI provider, encapsulating the provider type
+and the corresponding key string.
+"""
+
 from pygm.utils.ai.ai_provider_type import AIProviderType
 
 

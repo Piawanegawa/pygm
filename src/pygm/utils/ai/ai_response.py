@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+
+"""
+AI response model.
+
+This module defines the AIResponse class representing a response
+received from an AI provider, including content, finish reason,
+and optional error information.
+"""
+
 from pydantic import BaseModel
 
 

@@ -1,10 +1,17 @@
-from abc import ABC
+#!/usr/bin/env python3
 
-from pygm.utils.ai.api_key import ApiKey
+"""
+AI client configuration.
+
+This module defines the AIClientConfig base class for configuring AI clients
+with provider-specific settings like API keys and model identifiers.
+"""
+
 from pygm.utils.ai.ai_provider_type import AIProviderType
+from pygm.utils.ai.api_key import ApiKey
 
 
-class AIClientConfig(ABC):
+class AIClientConfig:
     """
     Abstract base class for AI client configurations.
     """
@@ -15,8 +22,8 @@ class AIClientConfig(ABC):
         :param api_key: The API key for authentication.
         :param model_id: The model identifier to be used.
         """
-        self._api_key = api_key
-        self._model_id = model_id
+        self._api_key: ApiKey = api_key
+        self._model_id: str = model_id
 
     def get_provider_type(self) -> AIProviderType:
         """

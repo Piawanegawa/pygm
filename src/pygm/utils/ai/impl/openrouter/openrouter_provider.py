@@ -1,12 +1,22 @@
+#!/usr/bin/env python3
+
+"""
+OpenRouter provider implementation.
+
+This module provides the OpenRouterProvider class, which implements the AIProvider
+interface for creating and managing OpenRouter API clients.
+"""
+
 from openai import OpenAI
 
 from pygm.utils.ai.ai_client import AIClient
 from pygm.utils.ai.ai_client_config import AIClientConfig
-
 from pygm.utils.ai.ai_provider import AIProvider
 from pygm.utils.ai.ai_provider_type import AIProviderType
 from pygm.utils.ai.impl.openrouter.openrouter_client import OpenRouterClient
-from pygm.utils.ai.impl.openrouter.openrouter_client_config import OpenRouterClientConfig
+from pygm.utils.ai.impl.openrouter.openrouter_client_config import (
+    OpenRouterClientConfig,
+)
 
 
 class OpenRouterProvider(AIProvider):
@@ -34,16 +44,11 @@ class OpenRouterProvider(AIProvider):
 
     def get_available_models(self) -> list[str]:
         """
-        Return a list of available models.
+        Return a list of available models from OpenRouter API.
         :return: List of model identifiers.
         """
-        return [
-            "openai/gpt-4o",
-            "openai/gpt-4o-mini",
-            "anthropic/claude-3.5-sonnet",
-            "google/gemini-pro-1.5",
-            "meta-llama/llama-3-70b-instruct",
-        ]
+        models = self._client.models.list()
+        return [model.id for model in models.data]
 
     def create_ai_client(self, config: AIClientConfig) -> AIClient:
         """

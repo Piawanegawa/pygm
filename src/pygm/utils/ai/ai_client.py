@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+
+"""
+AI client interface.
+
+This module defines the abstract AIClient interface for communicating
+with AI providers. Concrete implementations handle provider-specific API calls.
+"""
+
 from abc import ABC, abstractmethod
 
 from pygm.utils.ai.ai_prompt import AIPrompt

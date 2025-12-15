@@ -1,8 +1,18 @@
+#!/usr/bin/env python3
+
+"""
+AI provider abstract base class.
+
+This module defines the AIProvider abstract base class that serves as
+the foundation for implementing AI provider integrations, including
+methods for API endpoints, available models, and client creation.
+"""
+
 from abc import ABC, abstractmethod
 
-from pygm.utils.ai.ai_provider_type import AIProviderType
 from pygm.utils.ai.ai_client import AIClient
 from pygm.utils.ai.ai_client_config import AIClientConfig
+from pygm.utils.ai.ai_provider_type import AIProviderType
 
 
 class AIProvider(ABC):

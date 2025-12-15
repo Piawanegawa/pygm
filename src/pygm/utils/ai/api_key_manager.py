@@ -1,4 +1,14 @@
+#!/usr/bin/env python3
+
+"""
+API key manager.
+
+This module provides the ApiKeyManager class for managing API keys
+of different AI providers with persistence via dotenv environment files.
+"""
+
 import os
+
 from dotenv import load_dotenv, set_key
 
 from pygm.utils.ai.ai_provider_type import AIProviderType

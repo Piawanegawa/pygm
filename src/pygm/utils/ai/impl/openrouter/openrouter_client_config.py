@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+
+"""
+OpenRouter client configuration.
+
+This module provides the OpenRouterClientConfig class, which extends AIClientConfig
+for OpenRouter-specific configuration settings.
+"""
+
 from pygm.utils.ai.ai_client_config import AIClientConfig
 from pygm.utils.ai.api_key import ApiKey
 

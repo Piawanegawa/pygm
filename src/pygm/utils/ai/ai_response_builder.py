@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+
+"""
+AI response builder.
+
+This module provides the AIResponseBuilder class for constructing
+AIResponse instances using a fluent builder pattern with support
+for content, finish reason, and error information.
+"""
+
 from pygm.utils.ai.ai_response import AIResponse
 
 

@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+
+"""
+AI prompt builder.
+
+This module provides the AIPromptBuilder class for constructing
+AIPrompt instances using a fluent builder pattern with support
+for messages and generation parameters.
+"""
+
 from pygm.utils.ai.ai_message import AIMessage
 from pygm.utils.ai.ai_message_role import AIMessageRole
 from pygm.utils.ai.ai_prompt import AIPrompt

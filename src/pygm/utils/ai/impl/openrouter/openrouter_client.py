@@ -1,4 +1,14 @@
+#!/usr/bin/env python3
+
+"""
+OpenRouter client implementation.
+
+This module provides the OpenRouterClient class, which implements the AIClient
+interface for communicating with the OpenRouter API using an OpenAI-compatible client.
+"""
+
 from openai import OpenAI
+from openai.types.chat import ChatCompletionMessageParam
 
 from pygm.utils.ai.ai_client import AIClient
 from pygm.utils.ai.ai_prompt import AIPrompt
@@ -15,7 +25,7 @@ class OpenRouterClient(AIClient):
         """
         Initialize the OpenRouter client.
         :param client: Pre-configured OpenAI client for OpenRouter.
-        :param model: model to use for requests.
+        :param model: Model to use for requests.
         """
         self._client: OpenAI = client
         self._model: str = model
@@ -27,7 +37,7 @@ class OpenRouterClient(AIClient):
         :return: The AI response.
         """
         messages = self._build_messages(prompt)
-        builder = AIResponseBuilder(prompt.get_prompt_id())
+        builder: AIResponseBuilder = AIResponseBuilder(prompt.get_prompt_id())
         try:
             response = self._client.chat.completions.create(
                 model=self._model,
@@ -41,14 +51,14 @@ class OpenRouterClient(AIClient):
         return builder.build()
 
     @classmethod
-    def _build_messages(cls, prompt: AIPrompt) -> list[dict[str, str]]:
+    def _build_messages(cls, prompt: AIPrompt) -> list[ChatCompletionMessageParam]:
         """
         Build the messages list for the API call.
         :param prompt: The prompt containing messages.
-        :return: List of message dictionaries.
+        :return: List of message parameters.
         """
         return [
-            {"role": msg.get_role().value, "content": msg.get_content()}
+            ChatCompletionMessageParam(role=msg.get_role().value, content=msg.get_content())
             for msg in prompt.get_messages()
         ]
 
