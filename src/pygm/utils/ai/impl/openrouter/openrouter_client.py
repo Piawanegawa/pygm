@@ -1,5 +1,3 @@
-from abc import abstractmethod
-
 from openai import OpenAI
 
 from pygm.utils.ai.ai_client import AIClient
@@ -42,8 +40,8 @@ class OpenRouterClient(AIClient):
             self._handle_error(e, builder)
         return builder.build()
 
-    @staticmethod
-    def _build_messages(self, prompt: AIPrompt) -> list[dict[str, str]]:
+    @classmethod
+    def _build_messages(cls, prompt: AIPrompt) -> list[dict[str, str]]:
         """
         Build the messages list for the API call.
         :param prompt: The prompt containing messages.
@@ -54,8 +52,8 @@ class OpenRouterClient(AIClient):
             for msg in prompt.get_messages()
         ]
 
-    @staticmethod
-    def _handle_success(self, response, builder: AIResponseBuilder) -> None:
+    @classmethod
+    def _handle_success(cls, response, builder: AIResponseBuilder) -> None:
         """
         Handle a successful API response.
         :param response: The API response object.
