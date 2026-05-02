@@ -36,6 +36,15 @@ class AIClientConfigBuilder:
         self._api_key = api_key
         return self
 
+    def set_model_id(self, model_id: str) -> "AIClientConfigBuilder":
+        """
+        Set the model identifier.
+        :param model_id: The model identifier.
+        :return: The builder instance.
+        """
+        self._model_id = model_id
+        return self
+
     def build(self) -> AIClientConfig:
         """
         Build the AIClientConfig.

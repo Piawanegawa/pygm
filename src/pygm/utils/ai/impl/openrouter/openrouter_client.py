@@ -58,7 +58,7 @@ class OpenRouterClient(AIClient):
         :return: List of message parameters.
         """
         return [
-            ChatCompletionMessageParam(role=msg.get_role().value, content=msg.get_content())
+            {"role": msg.get_role().value, "content": msg.get_content()}
             for msg in prompt.get_messages()
         ]
 

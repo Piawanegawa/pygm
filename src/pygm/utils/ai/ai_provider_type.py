@@ -16,3 +16,4 @@ class AIProviderType(Enum):
     """
 
     OPENROUTER = "OPENROUTER"
+    TEST = "TEST"

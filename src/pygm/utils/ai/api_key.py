@@ -38,3 +38,13 @@ class ApiKey:
         :return: The API key string.
         """
         return self._api_key
+
+    def __eq__(self, other: object) -> bool:
+        """
+        Check equality with another ApiKey.
+        :param other: The object to compare with.
+        :return: True if both ApiKeys are equal, False otherwise.
+        """
+        if not isinstance(other, ApiKey):
+            return NotImplemented
+        return self._provider_type == other._provider_type and self._api_key == other._api_key

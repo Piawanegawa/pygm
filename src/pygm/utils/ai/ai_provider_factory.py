@@ -33,7 +33,7 @@ class AIProviderFactory:
         """
         provider_type = config.get_provider_type()
         if provider_type == AIProviderType.OPENROUTER:
-            if not isinstance(config, OpenRouterClientConfig):
-                raise TypeError("Expected OpenRouterClientConfig for OPENROUTER provider")
-            return OpenRouterProvider(config)
+            if isinstance(config, OpenRouterClientConfig):
+                return OpenRouterProvider(config)
+            raise TypeError("Expected OpenRouterClientConfig for OPENROUTER provider")
         raise ValueError(f"Unsupported provider type: {provider_type}")
