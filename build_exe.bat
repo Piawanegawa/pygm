@@ -19,7 +19,7 @@ uv run --python "%PYGM_PYTHON%" pyinstaller ^
     --noconfirm ^
     --clean ^
     --onefile ^
-    --console ^
+    --windowed ^
     --name pygm ^
     --paths src ^
     "src\pygm\__main__.py"
@@ -35,5 +35,5 @@ if exist "pygm.env" (
 )
 
 echo Built dist\pygm.exe
-echo Start dist\pygm.exe to open the AI chat console.
+echo Start dist\pygm.exe to open the pygm GUI.
 pause

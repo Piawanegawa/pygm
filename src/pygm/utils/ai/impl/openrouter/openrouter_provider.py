@@ -57,9 +57,12 @@ class OpenRouterProvider(AIProvider):
         :return: the AI client instance.
         """
         if isinstance(config, OpenRouterClientConfig):
+            model_id = config.get_model_id()
+            if model_id is None:
+                raise ValueError("OpenRouter model ID is required")
             return OpenRouterClient(
                 client=self._client,
-                model=config.get_model_id(),
+                model=model_id,
             )
         raise ValueError("Invalid config type for OpenRouterProvider")
 
@@ -68,7 +71,32 @@ class OpenRouterProvider(AIProvider):
         Create the OpenAI client configured for OpenRouter.
         :return: Configured OpenAI client.
         """
+        api_key = self._get_required_api_key()
+        print(f"OpenRouter API key configured: {_mask_api_key(api_key)}")
         return OpenAI(
             base_url=self._API_ENDPOINT,
-            api_key=self._config.get_api_key(),
+            api_key=api_key,
+            default_headers={"Authorization": f"Bearer {api_key}"},
         )
+
+    def _get_required_api_key(self) -> str:
+        """
+        Get a non-empty API key for OpenRouter.
+        :return: The configured API key.
+        :raises ValueError: If the API key is empty.
+        """
+        api_key = self._config.get_api_key().strip()
+        if not api_key:
+            raise ValueError("OpenRouter API key is empty")
+        return api_key
+
+
+def _mask_api_key(api_key: str) -> str:
+    """
+    Mask an API key for diagnostic logs.
+    :param api_key: The API key to mask.
+    :return: The masked API key.
+    """
+    if len(api_key) <= 8:
+        return "***"
+    return f"{api_key[:4]}...{api_key[-4:]}"

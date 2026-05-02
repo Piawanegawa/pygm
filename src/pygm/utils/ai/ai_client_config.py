@@ -23,7 +23,7 @@ class AIClientConfig:
         :param model_id: The model identifier to be used.
         """
         self._api_key: ApiKey = api_key
-        self._model_id: str = model_id
+        self._model_id: str | None = model_id
 
     def get_provider_type(self) -> AIProviderType:
         """

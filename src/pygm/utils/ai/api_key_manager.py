@@ -8,11 +8,11 @@ of different AI providers with persistence via dotenv environment files.
 """
 
 import os
-import sys
 from pathlib import Path
 
-from dotenv import load_dotenv, set_key
+from dotenv import dotenv_values, load_dotenv, set_key
 
+from pygm.app.config_paths import get_existing_env_file_candidates, get_preferred_env_file_path
 from pygm.utils.ai.ai_provider_type import AIProviderType
 from pygm.utils.ai.api_key import ApiKey
 
@@ -69,12 +69,20 @@ class ApiKeyManager:
         """
         Load API keys from the environment file.
         """
-        env_file_path = self._get_env_file_path()
-        if env_file_path.exists():
+        for env_file_path in get_existing_env_file_candidates():
             load_dotenv(str(env_file_path))
+            self._load_api_keys_from_file(env_file_path)
+
+    def _load_api_keys_from_file(self, env_file_path: Path) -> None:
+        """
+        Load API keys from one environment file.
+        :param env_file_path: The environment file path.
+        :return: None.
+        """
+        env_values = dotenv_values(str(env_file_path))
         for provider_type in AIProviderType:
             env_key = self._get_env_key_name(provider_type)
-            api_key_value = os.getenv(env_key)
+            api_key_value = env_values.get(env_key) or os.getenv(env_key)
             if api_key_value:
                 self._api_keys[provider_type] = ApiKey(provider_type, api_key_value)
 
@@ -84,13 +92,7 @@ class ApiKeyManager:
         Get the preferred environment file path.
         :return: The environment file path.
         """
-        candidates = [Path.cwd() / cls.ENV_FILE]
-        if getattr(sys, "frozen", False):
-            candidates.append(Path(sys.executable).resolve().parent / cls.ENV_FILE)
-        for candidate in candidates:
-            if candidate.exists():
-                return candidate
-        return candidates[0]
+        return get_preferred_env_file_path()
 
     @staticmethod
     def _get_env_key_name(provider_type: AIProviderType) -> str:
